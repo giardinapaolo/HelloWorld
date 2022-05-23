@@ -1,8 +1,7 @@
-package it.sincrono.crm.controllers.beans.responses;
+package it.paolo.crm.controllers.beans.responses;
 
+import it.paolo.crm.controllers.beans.Esito;
 import lombok.*;
-
-import it.sincrono.crm.controllers.beans.Esito;
 
 @Data
 @EqualsAndHashCode(callSuper = false)

@@ -1,4 +1,4 @@
-package it.sincrono.crm.controllers.constants;
+package it.paolo.crm.controllers.constants;
 
 public interface ControllerMaps {
 

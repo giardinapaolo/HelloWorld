@@ -1,4 +1,4 @@
-package it.sincrono.crm.controllers.beans.requests;
+package it.paolo.crm.controllers.beans.requests;
 
 import lombok.Data;
 

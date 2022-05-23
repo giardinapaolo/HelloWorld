@@ -1,3 +1,3 @@
-package it.sincrono.crm.controllers;
+package it.paolo.crm.controllers;
 
 public abstract class BaseController {}

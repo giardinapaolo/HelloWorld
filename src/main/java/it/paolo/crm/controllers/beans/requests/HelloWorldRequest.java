@@ -1,10 +1,10 @@
-package it.sincrono.crm.controllers.beans.responses;
+package it.paolo.crm.controllers.beans.requests;
 
 import lombok.*;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 @ToString(callSuper = true)
-public class HelloWorldResponse extends GenericResponse {
+public class HelloWorldRequest extends GenericRequest {
 	private String message;
 }

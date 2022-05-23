@@ -1,4 +1,4 @@
-package it.sincrono.crm.controllers.beans;
+package it.paolo.crm.controllers.beans;
 
 import lombok.*;
 

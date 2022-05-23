@@ -1,4 +1,4 @@
-package it.sincrono.crm.controllers;
+package it.paolo.crm.controllers;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.sincrono.crm.controllers.beans.Esito;
-import it.sincrono.crm.controllers.beans.responses.HelloWorldResponse;
-import it.sincrono.crm.controllers.constants.ControllerMaps;
+import it.paolo.crm.controllers.beans.Esito;
+import it.paolo.crm.controllers.beans.responses.HelloWorldResponse;
+import it.paolo.crm.controllers.constants.ControllerMaps;
 
 @RestController
 public class HelloWorldController {
