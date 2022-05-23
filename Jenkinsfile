@@ -32,9 +32,9 @@ pipeline {
         /*
         stage('Deploy'){
             steps {
-                sh "docker stop hello-world | true"
-                sh "docker rm hello-world | true"
-                sh "docker run --name hello-world -d -p 9004:8080 vigneshsweekaran/hello-world:${TAG}"
+                sh "docker stop giardinapaolo64/java-example | true"
+                sh "docker rm giardinapaolo64/java-example | true"
+                sh "docker run --name giardinapaolo64/java-example -d -p 8000:8080 giardinapaolo64/java-example:${TAG}"
             }
         }
         */
