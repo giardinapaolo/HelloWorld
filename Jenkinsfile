@@ -1,29 +1,45 @@
-node {
+pipeline {
     
-    def app
-
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-        checkout scm
+    agent any
+    
+    tools {
+        maven 'maven-3.6.3' 
     }
-
-    stage('Build image') {
-        /* This builds the actual image */
-        app = docker.build("giardinapaolo64/java-example")
+    environment {
+        DATE = new Date().format('yy.M')
+        TAG = "${DATE}.${BUILD_NUMBER}"
     }
-
-    stage('Test image') {
-        app.inside {
-            echo "Tests passed"
+    stages {
+        stage ('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
         }
-    }
-
-    stage('Push image') {
-		/* You would need to first register with DockerHub before you can push images to your account */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        } 
-        echo "Trying to Push Docker Build to DockerHub"
+        stage('Docker Build') {
+            steps {
+                script {
+                    docker.build("giardinapaolo64/java-example:${TAG}")
+                }
+            }
+        }
+	    stage('Pushing Docker Image to Dockerhub') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+                        docker.image("giardinapaolo64/java-example:${TAG}").push()
+                        docker.image("giardinapaolo64/java-example:${TAG}").push("latest")
+                    }
+                }
+            }
+        }
+        /*
+        stage('Deploy'){
+            steps {
+                sh "docker stop hello-world | true"
+                sh "docker rm hello-world | true"
+                sh "docker run --name hello-world -d -p 9004:8080 vigneshsweekaran/hello-world:${TAG}"
+            }
+        }
+        */
     }
 }
